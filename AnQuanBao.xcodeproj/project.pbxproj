@@ -7,14 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		841FD091631C9C20722B88AC /* libPods-AnQuanBaoUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DE4ADF33B8518C8AB74AA10D /* libPods-AnQuanBaoUITests.a */; };
 		942B677F1EF1102A00101777 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 942B677E1EF1102A00101777 /* main.m */; };
-		942B67821EF1102A00101777 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 942B67811EF1102A00101777 /* AppDelegate.m */; };
+		942B67821EF1102A00101777 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 942B67811EF1102A00101777 /* AppDelegate.mm */; };
 		942B67851EF1102A00101777 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 942B67841EF1102A00101777 /* ViewController.m */; };
 		942B67881EF1102A00101777 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 942B67861EF1102A00101777 /* Main.storyboard */; };
 		942B678A1EF1102A00101777 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 942B67891EF1102A00101777 /* Assets.xcassets */; };
 		942B678D1EF1102A00101777 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 942B678B1EF1102A00101777 /* LaunchScreen.storyboard */; };
 		942B67981EF1102A00101777 /* AnQuanBaoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 942B67971EF1102A00101777 /* AnQuanBaoTests.m */; };
 		942B67A31EF1102A00101777 /* AnQuanBaoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 942B67A21EF1102A00101777 /* AnQuanBaoUITests.m */; };
+		942B67B31EF110BD00101777 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 942B67B11EF110BD00101777 /* libcrypto.a */; };
+		942B67B41EF110BD00101777 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 942B67B21EF110BD00101777 /* libssl.a */; };
+		942B67B61EF111F200101777 /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 942B67B51EF111F200101777 /* mapapi.bundle */; };
+		942B67BE1EF11F4900101777 /* www in Resources */ = {isa = PBXBuildFile; fileRef = 942B67BD1EF11F4900101777 /* www */; };
+		942B67C01EF11F6600101777 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = 942B67BF1EF11F6600101777 /* config.xml */; };
+		942B67C41EF1219F00101777 /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 942B67BC1EF11F1800101777 /* libCordova.a */; };
+		942B67C61EF121AD00101777 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 942B67C51EF121AD00101777 /* AssetsLibrary.framework */; };
+		942B67C81EF121B500101777 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 942B67C71EF121B500101777 /* MobileCoreServices.framework */; };
+		94BA933B1EF12ECB0097EF09 /* CallPoliceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94BA933A1EF12ECB0097EF09 /* CallPoliceView.xib */; };
+		94BA933E1EF12F660097EF09 /* CallPoliceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BA933D1EF12F660097EF09 /* CallPoliceView.m */; };
+		94BA93411EF22B1B0097EF09 /* CPInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BA93401EF22B1B0097EF09 /* CPInfo.m */; };
+		94D50CF91EF7A1B900C4A321 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D50CF81EF7A1B900C4A321 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		94D50CFB1EF7AF5500C4A321 /* sportarrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 94D50CFA1EF7AF5500C4A321 /* sportarrow.png */; };
+		B302B8F1B1D5D451F68A7F16 /* libPods-AnQuanBaoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7729E134A69651A495AEBF19 /* libPods-AnQuanBaoTests.a */; };
+		EBEF88ED26E23861F51B2A04 /* libPods-AnQuanBao.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 042846CFAE6EC1BA35C31204 /* libPods-AnQuanBao.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,13 +48,34 @@
 			remoteGlobalIDString = 942B67791EF1102A00101777;
 			remoteInfo = AnQuanBao;
 		};
+		942B67BB1EF11F1800101777 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 942B67B71EF11F1800101777 /* CordovaLib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 68A32D7114102E1C006B237C;
+			remoteInfo = CordovaLib;
+		};
+		942B67C21EF1218E00101777 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 942B67B71EF11F1800101777 /* CordovaLib.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = CordovaLib;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		042846CFAE6EC1BA35C31204 /* libPods-AnQuanBao.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AnQuanBao.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AA6418E03C308EE3E047302 /* Pods-AnQuanBaoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnQuanBaoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnQuanBaoUITests/Pods-AnQuanBaoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		42C9FE4757B5B93DDB16E572 /* Pods-AnQuanBaoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnQuanBaoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnQuanBaoTests/Pods-AnQuanBaoTests.release.xcconfig"; sourceTree = "<group>"; };
+		5036644366A7E18C95B67B44 /* Pods-AnQuanBao.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnQuanBao.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnQuanBao/Pods-AnQuanBao.debug.xcconfig"; sourceTree = "<group>"; };
+		5BA09CEE76A8AF06E37B5F79 /* Pods-AnQuanBaoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnQuanBaoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnQuanBaoTests/Pods-AnQuanBaoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5E49941B51DA48EADC7AB87E /* Pods-AnQuanBao.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnQuanBao.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnQuanBao/Pods-AnQuanBao.release.xcconfig"; sourceTree = "<group>"; };
+		7729E134A69651A495AEBF19 /* libPods-AnQuanBaoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AnQuanBaoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		942B677A1EF1102A00101777 /* AnQuanBao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnQuanBao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		942B677E1EF1102A00101777 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		942B67801EF1102A00101777 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		942B67811EF1102A00101777 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		942B67811EF1102A00101777 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		942B67831EF1102A00101777 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		942B67841EF1102A00101777 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		942B67871EF1102A00101777 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -51,6 +88,24 @@
 		942B679E1EF1102A00101777 /* AnQuanBaoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnQuanBaoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		942B67A21EF1102A00101777 /* AnQuanBaoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnQuanBaoUITests.m; sourceTree = "<group>"; };
 		942B67A41EF1102A00101777 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		942B67B11EF110BD00101777 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "../Downloads/BaiduMap_IOSSDK_v3.3.0_All 2/BaiduMap_IOSSDK_v3.3.0_Sample/BMKOCDemo/BaiduMapAPI/thirdlibs/libcrypto.a"; sourceTree = "<group>"; };
+		942B67B21EF110BD00101777 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = "../Downloads/BaiduMap_IOSSDK_v3.3.0_All 2/BaiduMap_IOSSDK_v3.3.0_Sample/BMKOCDemo/BaiduMapAPI/thirdlibs/libssl.a"; sourceTree = "<group>"; };
+		942B67B51EF111F200101777 /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = mapapi.bundle; path = AnQuanBao/mapapi.bundle; sourceTree = "<group>"; };
+		942B67B71EF11F1800101777 /* CordovaLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CordovaLib.xcodeproj; path = ../cordova_/AnQuanBao/platforms/ios/CordovaLib/CordovaLib.xcodeproj; sourceTree = "<group>"; };
+		942B67BD1EF11F4900101777 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
+		942B67BF1EF11F6600101777 /* config.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = config.xml; sourceTree = "<group>"; };
+		942B67C51EF121AD00101777 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		942B67C71EF121B500101777 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		94BA933A1EF12ECB0097EF09 /* CallPoliceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CallPoliceView.xib; sourceTree = "<group>"; };
+		94BA933C1EF12F660097EF09 /* CallPoliceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallPoliceView.h; sourceTree = "<group>"; };
+		94BA933D1EF12F660097EF09 /* CallPoliceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallPoliceView.m; sourceTree = "<group>"; };
+		94BA933F1EF22B1B0097EF09 /* CPInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPInfo.h; sourceTree = "<group>"; };
+		94BA93401EF22B1B0097EF09 /* CPInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPInfo.m; sourceTree = "<group>"; };
+		94D50CF71EF7A1B900C4A321 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		94D50CF81EF7A1B900C4A321 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		94D50CFA1EF7AF5500C4A321 /* sportarrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sportarrow.png; sourceTree = "<group>"; };
+		DE4ADF33B8518C8AB74AA10D /* libPods-AnQuanBaoUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AnQuanBaoUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA83A1DA9DA355B38807DB00 /* Pods-AnQuanBaoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnQuanBaoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnQuanBaoUITests/Pods-AnQuanBaoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +113,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				942B67C81EF121B500101777 /* MobileCoreServices.framework in Frameworks */,
+				942B67C61EF121AD00101777 /* AssetsLibrary.framework in Frameworks */,
+				942B67C41EF1219F00101777 /* libCordova.a in Frameworks */,
+				942B67B31EF110BD00101777 /* libcrypto.a in Frameworks */,
+				942B67B41EF110BD00101777 /* libssl.a in Frameworks */,
+				EBEF88ED26E23861F51B2A04 /* libPods-AnQuanBao.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B302B8F1B1D5D451F68A7F16 /* libPods-AnQuanBaoTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				841FD091631C9C20722B88AC /* libPods-AnQuanBaoUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,10 +144,17 @@
 		942B67711EF1102A00101777 = {
 			isa = PBXGroup;
 			children = (
+				94D50CFA1EF7AF5500C4A321 /* sportarrow.png */,
+				94BA93391EF12BCD0097EF09 /* Resource */,
+				942B67BF1EF11F6600101777 /* config.xml */,
+				942B67BD1EF11F4900101777 /* www */,
+				942B67B71EF11F1800101777 /* CordovaLib.xcodeproj */,
 				942B677C1EF1102A00101777 /* AnQuanBao */,
 				942B67961EF1102A00101777 /* AnQuanBaoTests */,
 				942B67A11EF1102A00101777 /* AnQuanBaoUITests */,
 				942B677B1EF1102A00101777 /* Products */,
+				942B67B01EF110BD00101777 /* Frameworks */,
+				AC6F8763E2F8F61737F8F292 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,8 +171,10 @@
 		942B677C1EF1102A00101777 /* AnQuanBao */ = {
 			isa = PBXGroup;
 			children = (
+				94D50CF71EF7A1B900C4A321 /* JSONKit.h */,
+				94D50CF81EF7A1B900C4A321 /* JSONKit.m */,
 				942B67801EF1102A00101777 /* AppDelegate.h */,
-				942B67811EF1102A00101777 /* AppDelegate.m */,
+				942B67811EF1102A00101777 /* AppDelegate.mm */,
 				942B67831EF1102A00101777 /* ViewController.h */,
 				942B67841EF1102A00101777 /* ViewController.m */,
 				942B67861EF1102A00101777 /* Main.storyboard */,
@@ -110,6 +182,11 @@
 				942B678B1EF1102A00101777 /* LaunchScreen.storyboard */,
 				942B678E1EF1102A00101777 /* Info.plist */,
 				942B677D1EF1102A00101777 /* Supporting Files */,
+				94BA933A1EF12ECB0097EF09 /* CallPoliceView.xib */,
+				94BA933C1EF12F660097EF09 /* CallPoliceView.h */,
+				94BA933D1EF12F660097EF09 /* CallPoliceView.m */,
+				94BA933F1EF22B1B0097EF09 /* CPInfo.h */,
+				94BA93401EF22B1B0097EF09 /* CPInfo.m */,
 			);
 			path = AnQuanBao;
 			sourceTree = "<group>";
@@ -140,6 +217,49 @@
 			path = AnQuanBaoUITests;
 			sourceTree = "<group>";
 		};
+		942B67B01EF110BD00101777 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				942B67C71EF121B500101777 /* MobileCoreServices.framework */,
+				942B67C51EF121AD00101777 /* AssetsLibrary.framework */,
+				942B67B11EF110BD00101777 /* libcrypto.a */,
+				942B67B21EF110BD00101777 /* libssl.a */,
+				042846CFAE6EC1BA35C31204 /* libPods-AnQuanBao.a */,
+				7729E134A69651A495AEBF19 /* libPods-AnQuanBaoTests.a */,
+				DE4ADF33B8518C8AB74AA10D /* libPods-AnQuanBaoUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		942B67B81EF11F1800101777 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				942B67BC1EF11F1800101777 /* libCordova.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		94BA93391EF12BCD0097EF09 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				942B67B51EF111F200101777 /* mapapi.bundle */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
+		AC6F8763E2F8F61737F8F292 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5036644366A7E18C95B67B44 /* Pods-AnQuanBao.debug.xcconfig */,
+				5E49941B51DA48EADC7AB87E /* Pods-AnQuanBao.release.xcconfig */,
+				5BA09CEE76A8AF06E37B5F79 /* Pods-AnQuanBaoTests.debug.xcconfig */,
+				42C9FE4757B5B93DDB16E572 /* Pods-AnQuanBaoTests.release.xcconfig */,
+				FA83A1DA9DA355B38807DB00 /* Pods-AnQuanBaoUITests.debug.xcconfig */,
+				2AA6418E03C308EE3E047302 /* Pods-AnQuanBaoUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,13 +267,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 942B67A71EF1102A00101777 /* Build configuration list for PBXNativeTarget "AnQuanBao" */;
 			buildPhases = (
+				8DFA89B5A27ADE87768BF49A /* [CP] Check Pods Manifest.lock */,
 				942B67761EF1102A00101777 /* Sources */,
 				942B67771EF1102A00101777 /* Frameworks */,
 				942B67781EF1102A00101777 /* Resources */,
+				2439A43B793ECA3E58A4F9D2 /* [CP] Embed Pods Frameworks */,
+				48506B1D7E68B13D6360E871 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				942B67C31EF1218E00101777 /* PBXTargetDependency */,
 			);
 			name = AnQuanBao;
 			productName = AnQuanBao;
@@ -164,9 +288,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 942B67AA1EF1102A00101777 /* Build configuration list for PBXNativeTarget "AnQuanBaoTests" */;
 			buildPhases = (
+				7CC0565B521D30494C9CA3EF /* [CP] Check Pods Manifest.lock */,
 				942B678F1EF1102A00101777 /* Sources */,
 				942B67901EF1102A00101777 /* Frameworks */,
 				942B67911EF1102A00101777 /* Resources */,
+				D2CA021807A3D17954B87839 /* [CP] Embed Pods Frameworks */,
+				47B30AEAAAFD582784E370F2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -182,9 +309,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 942B67AD1EF1102A00101777 /* Build configuration list for PBXNativeTarget "AnQuanBaoUITests" */;
 			buildPhases = (
+				355835972AA1B946D3EEDE8E /* [CP] Check Pods Manifest.lock */,
 				942B679A1EF1102A00101777 /* Sources */,
 				942B679B1EF1102A00101777 /* Frameworks */,
 				942B679C1EF1102A00101777 /* Resources */,
+				88B4514F44F6374E56E14C3D /* [CP] Embed Pods Frameworks */,
+				FB477B740FA494D860BB2EF0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -235,6 +365,12 @@
 			mainGroup = 942B67711EF1102A00101777;
 			productRefGroup = 942B677B1EF1102A00101777 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 942B67B81EF11F1800101777 /* Products */;
+					ProjectRef = 942B67B71EF11F1800101777 /* CordovaLib.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				942B67791EF1102A00101777 /* AnQuanBao */,
@@ -244,13 +380,28 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		942B67BC1EF11F1800101777 /* libCordova.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libCordova.a;
+			remoteRef = 942B67BB1EF11F1800101777 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		942B67781EF1102A00101777 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				942B678D1EF1102A00101777 /* LaunchScreen.storyboard in Resources */,
+				94BA933B1EF12ECB0097EF09 /* CallPoliceView.xib in Resources */,
+				942B67B61EF111F200101777 /* mapapi.bundle in Resources */,
 				942B678A1EF1102A00101777 /* Assets.xcassets in Resources */,
+				94D50CFB1EF7AF5500C4A321 /* sportarrow.png in Resources */,
+				942B67C01EF11F6600101777 /* config.xml in Resources */,
+				942B67BE1EF11F4900101777 /* www in Resources */,
 				942B67881EF1102A00101777 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,13 +422,154 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2439A43B793ECA3E58A4F9D2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AnQuanBao/Pods-AnQuanBao-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		355835972AA1B946D3EEDE8E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		47B30AEAAAFD582784E370F2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AnQuanBaoTests/Pods-AnQuanBaoTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		48506B1D7E68B13D6360E871 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AnQuanBao/Pods-AnQuanBao-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7CC0565B521D30494C9CA3EF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		88B4514F44F6374E56E14C3D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AnQuanBaoUITests/Pods-AnQuanBaoUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8DFA89B5A27ADE87768BF49A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D2CA021807A3D17954B87839 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AnQuanBaoTests/Pods-AnQuanBaoTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB477B740FA494D860BB2EF0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AnQuanBaoUITests/Pods-AnQuanBaoUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		942B67761EF1102A00101777 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94BA933E1EF12F660097EF09 /* CallPoliceView.m in Sources */,
+				94BA93411EF22B1B0097EF09 /* CPInfo.m in Sources */,
+				94D50CF91EF7A1B900C4A321 /* JSONKit.m in Sources */,
 				942B67851EF1102A00101777 /* ViewController.m in Sources */,
-				942B67821EF1102A00101777 /* AppDelegate.m in Sources */,
+				942B67821EF1102A00101777 /* AppDelegate.mm in Sources */,
 				942B677F1EF1102A00101777 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,6 +602,11 @@
 			isa = PBXTargetDependency;
 			target = 942B67791EF1102A00101777 /* AnQuanBao */;
 			targetProxy = 942B679F1EF1102A00101777 /* PBXContainerItemProxy */;
+		};
+		942B67C31EF1218E00101777 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CordovaLib;
+			targetProxy = 942B67C21EF1218E00101777 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -427,11 +724,16 @@
 		};
 		942B67A81EF1102A00101777 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5036644366A7E18C95B67B44 /* Pods-AnQuanBao.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = EG38A8CGS3;
 				INFOPLIST_FILE = AnQuanBao/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"$(inherited)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cgwx.lixiang.test.AnQuanBao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -439,11 +741,16 @@
 		};
 		942B67A91EF1102A00101777 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E49941B51DA48EADC7AB87E /* Pods-AnQuanBao.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = EG38A8CGS3;
 				INFOPLIST_FILE = AnQuanBao/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"$(inherited)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cgwx.lixiang.test.AnQuanBao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -451,6 +758,7 @@
 		};
 		942B67AB1EF1102A00101777 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5BA09CEE76A8AF06E37B5F79 /* Pods-AnQuanBaoTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = EG38A8CGS3;
@@ -464,6 +772,7 @@
 		};
 		942B67AC1EF1102A00101777 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42C9FE4757B5B93DDB16E572 /* Pods-AnQuanBaoTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = EG38A8CGS3;
@@ -477,6 +786,7 @@
 		};
 		942B67AE1EF1102A00101777 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA83A1DA9DA355B38807DB00 /* Pods-AnQuanBaoUITests.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = EG38A8CGS3;
 				INFOPLIST_FILE = AnQuanBaoUITests/Info.plist;
@@ -489,6 +799,7 @@
 		};
 		942B67AF1EF1102A00101777 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2AA6418E03C308EE3E047302 /* Pods-AnQuanBaoUITests.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = EG38A8CGS3;
 				INFOPLIST_FILE = AnQuanBaoUITests/Info.plist;
@@ -518,6 +829,7 @@
 				942B67A91EF1102A00101777 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		942B67AA1EF1102A00101777 /* Build configuration list for PBXNativeTarget "AnQuanBaoTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +838,7 @@
 				942B67AC1EF1102A00101777 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		942B67AD1EF1102A00101777 /* Build configuration list for PBXNativeTarget "AnQuanBaoUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +847,7 @@
 				942B67AF1EF1102A00101777 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

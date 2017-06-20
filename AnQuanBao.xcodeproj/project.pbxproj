@@ -24,6 +24,7 @@
 		942B67C41EF1219F00101777 /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 942B67BC1EF11F1800101777 /* libCordova.a */; };
 		942B67C61EF121AD00101777 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 942B67C51EF121AD00101777 /* AssetsLibrary.framework */; };
 		942B67C81EF121B500101777 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 942B67C71EF121B500101777 /* MobileCoreServices.framework */; };
+		948BD4451EF918CF00E25088 /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = 948BD4441EF918CF00E25088 /* location.png */; };
 		94BA933B1EF12ECB0097EF09 /* CallPoliceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94BA933A1EF12ECB0097EF09 /* CallPoliceView.xib */; };
 		94BA933E1EF12F660097EF09 /* CallPoliceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BA933D1EF12F660097EF09 /* CallPoliceView.m */; };
 		94BA93411EF22B1B0097EF09 /* CPInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BA93401EF22B1B0097EF09 /* CPInfo.m */; };
@@ -96,6 +97,7 @@
 		942B67BF1EF11F6600101777 /* config.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = config.xml; sourceTree = "<group>"; };
 		942B67C51EF121AD00101777 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		942B67C71EF121B500101777 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		948BD4441EF918CF00E25088 /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location.png; sourceTree = "<group>"; };
 		94BA933A1EF12ECB0097EF09 /* CallPoliceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CallPoliceView.xib; sourceTree = "<group>"; };
 		94BA933C1EF12F660097EF09 /* CallPoliceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallPoliceView.h; sourceTree = "<group>"; };
 		94BA933D1EF12F660097EF09 /* CallPoliceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallPoliceView.m; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 		942B67711EF1102A00101777 = {
 			isa = PBXGroup;
 			children = (
+				948BD4441EF918CF00E25088 /* location.png */,
 				94D50CFA1EF7AF5500C4A321 /* sportarrow.png */,
 				94BA93391EF12BCD0097EF09 /* Resource */,
 				942B67BF1EF11F6600101777 /* config.xml */,
@@ -399,6 +402,7 @@
 				94BA933B1EF12ECB0097EF09 /* CallPoliceView.xib in Resources */,
 				942B67B61EF111F200101777 /* mapapi.bundle in Resources */,
 				942B678A1EF1102A00101777 /* Assets.xcassets in Resources */,
+				948BD4451EF918CF00E25088 /* location.png in Resources */,
 				94D50CFB1EF7AF5500C4A321 /* sportarrow.png in Resources */,
 				942B67C01EF11F6600101777 /* config.xml in Resources */,
 				942B67BE1EF11F4900101777 /* www in Resources */,

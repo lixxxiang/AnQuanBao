@@ -9,12 +9,13 @@
 #import <BaiduMapAPI_Map/BMKMapComponent.h>
 #import <BaiduMapAPI_Location/BMKLocationComponent.h>
 #import <BaiduMapAPI_Utils/BMKUtilsComponent.h>
+#import <BaiduMapAPI_Search/BMKSearchComponent.h>
 #import <Cordova/CDVViewController.h>
 #import <Cordova/CDVCommandDelegateImpl.h>
 #import <Cordova/CDVCommandQueue.h>
 #import "CallPoliceView.h"
 
-@interface ViewController :  CDVViewController<BMKMapViewDelegate, BMKLocationServiceDelegate, cpDelegate>
+@interface ViewController :  CDVViewController<BMKGeoCodeSearchDelegate, BMKMapViewDelegate, BMKLocationServiceDelegate, cpDelegate >
 {
     BMKMapView *_mapView;
     BMKLocationService *_locService;

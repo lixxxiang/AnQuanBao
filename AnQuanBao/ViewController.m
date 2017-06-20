@@ -14,13 +14,9 @@
 
 @interface BMKSportNode : NSObject
 
-//经纬度
 @property (nonatomic, assign) CLLocationCoordinate2D coordinate;
-//方向（角度）
 @property (nonatomic, assign) CGFloat angle;
-//距离
 @property (nonatomic, assign) CGFloat distance;
-//速度
 @property (nonatomic, assign) CGFloat speed;
 
 @end
@@ -58,21 +54,28 @@
 @end
 
 
-@interface ViewController ()
+
+@interface ViewController (){
+    CallPoliceView *cp;
+    CLLocationDegrees latitude;
+    CLLocationDegrees longitude;
+    NSMutableArray *sportNodes;//轨迹点
+    NSInteger sportNodeNum;//轨迹点数
+    NSInteger currentIndex;//当前结点
+    BMKPointAnnotation *sportAnnotation;
+    BMKPointAnnotation* pointAnnotation;
+    BMKPolygon *pathPloygon;
+    SportAnnotationView *sportAnnotationView;
+    bool ANSWER;
+    int index;
+    bool isGeoSearch;
+    BMKGeoCodeSearch* _geocodesearch;
+}
 
 @end
 
 @implementation ViewController
-CallPoliceView *cp;
-CLLocationDegrees latitude;
-CLLocationDegrees longitude;
-NSMutableArray *sportNodes;//轨迹点
-NSInteger sportNodeNum;//轨迹点数
-NSInteger currentIndex;//当前结点
-BMKPointAnnotation *sportAnnotation;
-BMKPointAnnotation* pointAnnotation;
-BMKPolygon *pathPloygon;
-SportAnnotationView *sportAnnotationView;
+CALayer *imageLayer;
 - (void)viewDidLoad {
     [super viewDidLoad];
     _mapView = [[BMKMapView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
@@ -93,11 +96,81 @@ SportAnnotationView *sportAnnotationView;
     cp.frame = CGRectMake(20, [UIScreen mainScreen].bounds.size.height - 200, [UIScreen mainScreen].bounds.size.width - 40, 200);
     cp.delegate = self;
     [self.view addSubview:cp];
-   // [self showLocation];
-//    sportNodes = [[NSMutableArray alloc] init];
+    //     [self answer];
+    //
+    [self isAnswered];
     
+    imageLayer = [CALayer layer];
+    imageLayer.frame = CGRectMake([[UIScreen mainScreen] bounds].size.width/2 - 15, [[UIScreen mainScreen] bounds].size.height/2 - 15, 30, 30);
+    imageLayer.contents = (id)[[UIImage imageNamed:@"location"] CGImage];
+    [self.view.layer addSublayer:imageLayer];
+    
+    _geocodesearch = [[BMKGeoCodeSearch alloc]init];
     
 }
+
+- (void)mapView:(BMKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
+    
+    CLLocationCoordinate2D centerCoordinate = mapView.region.center;
+    //    NSLog(@" regionDidChangeAnimated %f,%f",centerCoordinate.latitude, centerCoordinate.longitude);
+    //    CLLocationCoordinate2D coor;
+    //    coor.longitude = centerCoordinate.longitude;
+    //    coor.latitude = centerCoordinate.latitude;
+    //    BMKPointAnnotation* annotation = [[BMKPointAnnotation alloc]init];
+    //    annotation.coordinate = coor;
+    ////    annotation.title = @"这里是北京";
+    //    [_mapView addAnnotation:annotation];
+    //    [_mapView setCenterCoordinate:coor animated:YES];
+    CGPoint fromPoint = imageLayer.position;
+    CGPoint toPoint = CGPointMake(fromPoint.x  , fromPoint.y - 10);
+    CABasicAnimation* anim = [CABasicAnimation animationWithKeyPath:@"position"];
+    anim.fromValue = [NSValue valueWithCGPoint:fromPoint];
+    anim.toValue = [NSValue valueWithCGPoint:toPoint];
+    anim.duration = 0.1;
+    imageLayer.position = fromPoint;
+    anim.removedOnCompletion = YES;
+    [imageLayer addAnimation:anim forKey:nil];
+    
+    
+    
+    isGeoSearch = false;
+    CLLocationCoordinate2D pt = (CLLocationCoordinate2D){0, 0};
+    pt = (CLLocationCoordinate2D){centerCoordinate.latitude, centerCoordinate.longitude};
+    BMKReverseGeoCodeOption *reverseGeocodeSearchOption = [[BMKReverseGeoCodeOption alloc]init];
+    reverseGeocodeSearchOption.reverseGeoPoint = pt;
+    BOOL flag = [_geocodesearch reverseGeoCode:reverseGeocodeSearchOption];
+    if(flag)
+    {
+        NSLog(@"反geo检索发送成功");
+    }
+    else
+    {
+        NSLog(@"反geo检索发送失败");
+    }
+}
+
+-(void) onGetReverseGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKReverseGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error
+{
+    NSArray* array = [NSArray arrayWithArray:_mapView.annotations];
+    [_mapView removeAnnotations:array];
+    array = [NSArray arrayWithArray:_mapView.overlays];
+    [_mapView removeOverlays:array];
+    if (error == 0) {
+        BMKPointAnnotation* item = [[BMKPointAnnotation alloc]init];
+        item.coordinate = result.location;
+        item.title = result.address;
+        [_mapView addAnnotation:item];
+        _mapView.centerCoordinate = result.location;
+        NSString* titleStr;
+        NSString* showmeg;
+        titleStr = @"反向地理编码";
+        showmeg = [NSString stringWithFormat:@"%@",item.title];
+        
+        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:titleStr message:showmeg delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定",nil];
+        [myAlertView show];
+    }
+}
+
 
 -(void)slideUp {
     [UIView beginAnimations:@"" context:nil];
@@ -115,49 +188,27 @@ SportAnnotationView *sportAnnotationView;
     [UIView commitAnimations];
 }
 
--(void)answer{
-    sportNodes = [[NSMutableArray alloc] init];
-
-    static dispatch_source_t _timer;
-    NSTimeInterval period = 5.0; //设置时间间隔
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
-    dispatch_source_set_timer(_timer, dispatch_walltime(NULL, 0), period * NSEC_PER_SEC, 0); //每秒执行
-    dispatch_source_set_event_handler(_timer, ^{
-        dispatch_async(dispatch_get_main_queue(), ^{
-            NSInteger *index = 1;
-            NSString *url = [@"http://192.168.1.122:3000/location/" stringByAppendingString: [NSString stringWithFormat: @"%d", index]];
-//            NSURL * url = [NSURL URLWithString:@"http://192.168.1.122:3000/location"];
-            NSLog(@"url:%@", url);
-            NSURLSession * session = [NSURLSession sharedSession];
-            NSURLSessionDataTask * task = [session dataTaskWithURL:url
-                                                 completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-//                                                     NSLog(@"data%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-                                                     if (data) {
-                                                         NSArray *arr2 = [data objectFromJSONData];
-                                                         for (NSDictionary *dic in arr2) {
-                                                             BMKSportNode *sportNode = [[BMKSportNode alloc] init];
-                                                             sportNode.coordinate = CLLocationCoordinate2DMake([dic[@"lat"] doubleValue], [dic[@"lon"] doubleValue]);
-                                                             sportNode.angle = [dic[@"angle"] doubleValue];
-                                                             sportNode.distance = [dic[@"distance"] doubleValue];
-                                                             sportNode.speed = [dic[@"speed"] doubleValue];
-                                                             [sportNodes addObject:sportNode];
-                                                             sportNodeNum = sportNodes.count;
-                                                             
-                                                         }
-                                                     }
-                                                     
-                                                 }];
-            index++;
-            [task resume];
-        });
-    });
-    dispatch_resume(_timer);
+-(void)callPolice{
+    //post crime scene location
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.1.50:3000/location"];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:0 timeoutInterval:2.0f];
+    request.HTTPMethod = @"POST";
+    NSString *la = [@"distance=100&lat=" stringByAppendingString:[NSString stringWithFormat:@"%lf",latitude]];
+    NSString *lo = [@"&lon=" stringByAppendingString:[NSString stringWithFormat:@"%lf",longitude]];
+    request.HTTPBody = [[la stringByAppendingString:lo] dataUsingEncoding:NSUTF8StringEncoding];
+    [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSLog(@"crime scene location:%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+    }] resume];
 }
 
--(void)callPolice{
+
+-(void)answer{
+    //post location
+    //    sportNodes = [[NSMutableArray alloc] init];
     
-    
+    NSLog(@"ddd");
+    ANSWER = true;
     static dispatch_source_t _timer;
     NSTimeInterval period = 5.0; //设置时间间隔
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
@@ -165,84 +216,66 @@ SportAnnotationView *sportAnnotationView;
     dispatch_source_set_timer(_timer, dispatch_walltime(NULL, 0), period * NSEC_PER_SEC, 0); //每秒执行
     dispatch_source_set_event_handler(_timer, ^{
         dispatch_async(dispatch_get_main_queue(), ^{
-            NSURL *url = [NSURL URLWithString:@"http://192.168.1.122:3000/location"];
+            NSURL *url = [NSURL URLWithString:@"http://192.168.1.50:3000/location"];
             NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:0 timeoutInterval:2.0f];
             request.HTTPMethod = @"POST";
             NSString *la = [@"distance=100&lat=" stringByAppendingString:[NSString stringWithFormat:@"%lf",latitude]];
             NSString *lo = [@"&lon=" stringByAppendingString:[NSString stringWithFormat:@"%lf",longitude]];
             request.HTTPBody = [[la stringByAppendingString:lo] dataUsingEncoding:NSUTF8StringEncoding];
             [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-                NSLog(@"data%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+//                NSLog(@"data%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
             }] resume];
-
+            
         });
     });
     dispatch_resume(_timer);
     
-//    static dispatch_source_t _timer;
-//    NSTimeInterval period = 5.0; //设置时间间隔
-//    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-//    _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
-//    dispatch_source_set_timer(_timer, dispatch_walltime(NULL, 0), period * NSEC_PER_SEC, 0); //每秒执行
-//    dispatch_source_set_event_handler(_timer, ^{
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//           
-////            NSURL * url = [NSURL URLWithString:@"http://192.168.1.122:3000/location"];
-////            NSURLSession * session = [NSURLSession sharedSession];
-////            NSURLSessionDataTask * task = [session dataTaskWithURL:url
-////                                                 completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-////                                                     NSLog(@"data%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-////                                                     NSURLRequest *request2 = [NSURLRequest requestWithURL:url];
-////                                                     [[[NSURLSession sharedSession] dataTaskWithRequest:request2 completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-////                                                         if (data && !error) {
-////                                                             id obj = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
-////                                                             pointAnnotation = [[BMKPointAnnotation alloc]init];
-////                                                             CLLocationCoordinate2D coor;
-////                                                             coor.latitude = [obj[@"lat"] doubleValue];
-////                                                             coor.longitude = [obj[@"lon"] doubleValue];
-////                                                             pointAnnotation.coordinate = coor;
-////                                                         }
-////                                                     }] resume];
-////                                                     
-////                                                 }];
-////            [_mapView addAnnotation:pointAnnotation];
-////            [task resume];
-//            
-//            
-////            sportNodes = [[NSMutableArray alloc] init];
-////            //读取数据
-//            NSURL * url = [NSURL URLWithString:@"http://192.168.1.122:3000/location"];
-//           
-//            NSURLSession * session = [NSURLSession sharedSession];
-//            NSURLSessionDataTask * task = [session dataTaskWithURL:url
-//                                                 completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-//                                                     NSLog(@"data%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-//                                                     if (data) {
-//                                                         NSArray *arr2 = [data objectFromJSONData];
-//                                                         for (NSDictionary *dic in arr2) {
-//                                                             BMKSportNode *sportNode = [[BMKSportNode alloc] init];
-//                                                             sportNode.coordinate = CLLocationCoordinate2DMake([dic[@"lat"] doubleValue], [dic[@"lon"] doubleValue]);
-////                                                           sportNode.angle = [dic[@"angle"] doubleValue];
-//                                                             sportNode.distance = [dic[@"distance"] doubleValue];
-//                                                             sportNode.speed = [dic[@"speed"] doubleValue];
-//                                                             [sportNodes addObject:sportNode];
-//                                                             sportNodeNum = sportNodes.count;
-//                                                             
-//                                                         }
-////                                                         NSLog(@"sportNodeNum:%ld",(long)sportNodeNum);
-//                                                     }
-//                                                     
-//                                                 }];
-//            [task resume];
-//        });
-//    });
-//    
-//    // 开启定时器
-//    dispatch_resume(_timer);
-    
-    // 关闭定时器
-    // dispatch_source_cancel(_timer);
 }
+
+-(void)isAnswered{
+    sportNodes = [[NSMutableArray alloc] init];
+    index = 1;
+    static dispatch_source_t _timer;
+    NSTimeInterval period = 5.0; //设置时间间隔
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
+    dispatch_source_set_timer(_timer, dispatch_walltime(NULL, 0), period * NSEC_PER_SEC, 0); //每秒执行
+    dispatch_source_set_event_handler(_timer, ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+//            if(ANSWER == true){
+            
+                NSString *urlString = [@"http://192.168.1.50:3000/location/" stringByAppendingString: [NSString stringWithFormat: @"%d", index]];
+                NSURL * url = [NSURL URLWithString:urlString];
+//                NSURL *url = [NSURL URLWithString:@"http://192.168.1.50:3000/location/1"];
+                NSLog(@"url:%@", url);
+                NSURLSession * session = [NSURLSession sharedSession];
+                NSURLSessionDataTask * task = [session dataTaskWithURL:url
+                                                     completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                                                         NSLog(@"police location:%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                                                         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+                                                         
+                                                         if (data) {
+                                                                 BMKSportNode *sportNode = [[BMKSportNode alloc] init];
+                                                                 sportNode.coordinate = CLLocationCoordinate2DMake([dict[@"lat"] doubleValue], [dict[@"lon"] doubleValue]);
+                                                                 sportNode.angle = [dict[@"angle"] doubleValue];
+                                                                 sportNode.distance = [dict[@"distance"] doubleValue];
+                                                                 sportNode.speed = [dict[@"speed"] doubleValue];
+                                                                 [sportNodes addObject:sportNode];
+                                                                 sportNodeNum = sportNodes.count;
+                                                             
+                                                         }
+                                                         
+                                                     }];
+                index++;
+                [task resume];
+//            }
+        });
+    });
+    
+    dispatch_resume(_timer);
+    
+}
+
 
 - (void)start {
     CLLocationCoordinate2D paths[sportNodeNum];
@@ -252,7 +285,7 @@ SportAnnotationView *sportAnnotationView;
     }
     
     pathPloygon = [BMKPolygon polygonWithCoordinates:paths count:sportNodeNum];
-    //    [_mapView addOverlay:pathPloygon];
+        [_mapView addOverlay:pathPloygon];
     
     sportAnnotation = [[BMKPointAnnotation alloc]init];
     sportAnnotation.coordinate = paths[0];
@@ -286,6 +319,7 @@ SportAnnotationView *sportAnnotationView;
     [_mapView viewWillAppear];
     _mapView.delegate = self;
     _locService.delegate = self;
+    _geocodesearch.delegate = self;
     
 }
 
@@ -297,6 +331,7 @@ SportAnnotationView *sportAnnotationView;
     [_mapView viewWillDisappear];
     _mapView.delegate = nil;
     _locService.delegate = nil;
+    _geocodesearch.delegate = nil;
     
 }
 
@@ -310,7 +345,7 @@ SportAnnotationView *sportAnnotationView;
 }
 
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation {
-    NSLog(@"didUpdateUserLocation lat %f,long %f", userLocation.location.coordinate.latitude, userLocation.location.coordinate.longitude);
+//    NSLog(@"didUpdateUserLocation lat %f,long %f", userLocation.location.coordinate.latitude, userLocation.location.coordinate.longitude);
     
     latitude = userLocation.location.coordinate.latitude;
     longitude = userLocation.location.coordinate.longitude;
@@ -350,7 +385,21 @@ SportAnnotationView *sportAnnotationView;
     return sportAnnotationView;
 }
 
+-(void)reverseGeocode
+{
+    
+    
+}
 
+- (void)dealloc {
+    if (_mapView) {
+        _mapView = nil;
+    }
+    if (_geocodesearch != nil) {
+        _geocodesearch = nil;
+    }
+
+}
 
 
 @end
